@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd">
+<html> <!--  editor: kate  -->
+<head>
+<title>Humanismus</title>
+<script type="text/javascript">
+Normal1 = new Image();
+Normal1.src = "himmelkego.jpg"
+Over1 = new Image();
+Over1.src ="http://ubuntuone.com/5Vfz2Csk3UFcNWRCeXl0Xf"
+
+function Bildwechsel (Bildnr, Bildobjekt) {
+	window.document.images[Bildnr].src = Bildobjekt.src;
+}
+</script>
+
+<style type="text/css">
+<!--
+body { background: #6ec8fc}
+//-->
+</style>
+</head>
+<body>
+<div>
+<map name="Himmel">
+<area shape="rect" coords="1,1,300,100" href="http://www.diesseits.de" alt="Zeitschrift" title="Die Zeitschrift diesseits" target="_blank" onmouseover="Bildwechsel(0,Over1)" 
+onmouseout="Bildwechsel(0,Normal1)">
+
+<area shape="rect" coords="1,101,300,180" href="http://freigeisterhaus.de/" alt="Meinungen austauschen" title="Das Freigeisterhaus" target="_blank" onmouseover="Bildwechsel(0,Over1)" 
+onmouseout="Bildwechsel(0,Normal1)">
+
+<area shape="rect" coords="301,1,600,180" href="https://www.youtube.com/watch?v=c4NjzkXr4rM" alt="Buskampagne" title="Buskampagne" target="_blank" onmouseover="Bildwechsel(0,Over1)" 
+onmouseout="Bildwechsel(0,Normal1)">
+<area shape="rect" coords="601,1,900,180" href="http://www.wissenrockt.de" alt="Wissen hilft" title="Wissen hilft" target="_blank" onmouseover="Bildwechsel(0,Over1)" 
+onmouseout="Bildwechsel(0,Normal1)">
+<area shape="rect" coords="1,181,300,360" href="http://www.hpd.de" alt="Humanistischer Pressedienst" title="Humanistischer Pressedienst" target="_blank" onmouseover="Bildwechsel(0,Over1)" 
+onmouseout="Bildwechsel(0,Normal1)">
+<area shape="rect" coords="301,181,600,360" href="http://www.giordano-bruno-stiftung.de/" alt="Giordano-Bruno-Stiftung" title="Giordano-Bruno-Stiftung" target="_blank" onmouseover="Bildwechsel(0,Over1)" 
+onmouseout="Bildwechsel(0,Normal1)">
+<area shape="rect" coords="601,181,900,269" href="http://philippmöller.de/gottlos-glucklich/" alt="Gottlos gl&uuml;cklich" title="Gottlos gl&uuml;cklich" target="_blank" onmouseover="Bildwechsel(0,Over1)" 
+onmouseout="Bildwechsel(0,Normal1)">
+
+<area shape="rect" coords="601,270,900,360" href="http://www.bfg-bayern.de/" alt="Bund f&uuml;r Geistesfreiheit Bayern" title="Bund f&uuml;r Geistesfreiheit Bayern" target="_blank" onmouseover="Bildwechsel(0,Over1)" 
+onmouseout="Bildwechsel(0,Normal1)">
+
+<area shape="rect" coords="1,361,40,540" href="http://ubuntuone.com/59sO9ern6Ygp87rYJQNkHb" alt="Impressum" title="Impressum" onmouseover="Bildwechsel(0,Over1)" 
+onmouseout="Bildwechsel(0,Normal1)">
+
+<area shape="rect" coords="41,361,300,540" href="https://www.facebook.com/pages/gbs-Regionalgruppe-Ostsee/137495999690541" alt="Giordano Bruno Stiftung - Regionalgruppe Ostsee" title="Giordano Bruno Stiftung - Regionalgruppe Ostsee" target="_blank" onmouseover="Bildwechsel(0,Over1)" 
+onmouseout="Bildwechsel(0,Normal1)">
+<area shape="rect" coords="301,361,600,439" href="http://www.korso-deutschland.de/" alt="Koordinierungsrat S&auml;kularer Organisationen" title="Koordinierungsrat S&auml;kularer Organisationen" target="_blank" onmouseover="Bildwechsel(0,Over1)" 
+onmouseout="Bildwechsel(0,Normal1)">
+
+<area shape="rect" coords="301,440,600,540" href="http://www.youtube.com/watch?v=PV8tUv-6X8Q" alt="klare gbs-Worte" title="Pressereferent Philipp M&ouml;ller bei Disput\Berlin!" target="_blank" onmouseover="Bildwechsel(0,Over1)" 
+onmouseout="Bildwechsel(0,Normal1)">
+
+
+
+<area shape="rect" coords="601,361,900,540" href="http://www.gwup.org/" alt="Die Skeptiker" title="Die Skeptiker" target="_blank" onmouseover="Bildwechsel(0,Over1)" 
+onmouseout="Bildwechsel(0,Normal1)">
+
+</map>
+</div>
+
+<p>
+<div><center>
+<img src="http://ubuntuone.com/4aBUqdPbBrFJk24y3VhOtF" usemap="#Himmel">
+
+</center>
+</div>
+</p>
+
+<center>
+<a href="http://www.andyhoppe.com/" title="Zaehler"><img 
+src="http://c.andyhoppe.com/1330788354" style="border:none" alt="Zaehler" /></a></center>
+
+</body>
+</html>
