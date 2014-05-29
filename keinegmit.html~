@@ -7,7 +7,7 @@
 Normal1 = new Image();
 Normal1.src = "himmelkego.jpg"
 Over1 = new Image();
-Over1.src ="http://ubuntuone.com/5Vfz2Csk3UFcNWRCeXl0Xf"
+Over1.src ="himmelkegomohpm.jpg"
 
 function Bildwechsel (Bildnr, Bildobjekt) {
 	window.document.images[Bildnr].src = Bildobjekt.src;
