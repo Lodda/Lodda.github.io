@@ -1,0 +1,1099 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+<META NAME="Description" CONTENT="Ein minimaler Schnellkurs über die Programmiersprache Python für Leser mit Programmiererfahrung. 
+Behandelt Grundlagen und Aspekte der objektorientierten Programmierung in Python.
+Englisches Original verfasst von Magnus Lie Hetland; übertragen ins Deutsche.">
+                                               
+  <link rel="stylesheet" href="stylesheet.css" type="text/css">
+  <title>Und jetzt mal was ganz anderes: Instant Python</title>
+                    
+  <style>
+
+ <!--
+
+
+ /* body { margin: 1cm } */
+
+
+ p { text-align: justify }
+
+
+ code,pre { color: #990000 }
+
+
+ pre { font-size: 90% }
+
+
+ /* em { color: green } */
+
+
+ .comment { color: #808080 }
+
+
+
+ /* .comment { color: blue } */
+
+
+ //-->
+
+
+
+   </style>
+</head>
+<body leftmargin="0" rightmargin="0" topmargin="0" marginwidth="0"
+ marginheight="0" onload="if (self != top) top.location = self.location">
+Elektrotechnik / Elektronik studieren an der Universität Rostock: 
+<a href="http://elektrotechnik.uni-rostock.de/studium/">http://www.elektrotechnik.uni-rostock.de/studium/</a><hr>
+
+<div id="searchlayer"
+ style="position: absolute; left: 650px; top: 25px; visibility: hidden;">
+<form action="http://www.google.com/search"><strong class="greentext">Google</strong><br>
+  <input type="text" size="15" name="query"></form>
+</div>
+<!-- old colour=#fe7312 --><!-- old width=100% -->
+<table width="800" cellpadding="0" cellspacing="0" border="0">
+<!-- <tr><td>&nbsp;</td></tr> -->   <tbody>
+    <tr>
+    <td valign="top">                                                    
+                                 <br>
+      </td>
+   <td valign="top">                                                     
+                                               
+      <table height="100%" cellpadding="0" cellspacing="0" border="0"
+ width="646" align="center">
+        <tbody>
+          <tr>
+            <td valign="top">                                            
+                                                                        
+                                                                      
+            <h1>Instant Python</h1>
+                                                                         
+                                                                         
+                                          
+            <p><font color="#990000">von Magnus Lie Hetland</font></p>
+                                                                         
+                
+            <font color="#aaaaaa">[Wenn dir diese Anleitung gef&auml;llt, dann
+schau bitte auch mein Buch <a
+ href="http://hetland.org/writing/beginning-python">Beginning Python</a>
+an, vielleicht wirst du auch mein Fan <a href="http://www.facebook.com/pages/Magnus-Lie-Hetland/14924775265">bei Facebook</a>.]</font></p>
+                                                                         
+                                                                         
+                                          
+            <p>Dies ist ein <em>extrem knapper</em> Schnellkurs &uuml;ber die
+Programmiersprache             <a
+ href="http://www.python.org/doc/Introduction.html">Python</a>. Mehr kann
+man dann lernen, wenn man sich die Dokumentation auf den Python-Seiten  
+          <a href="http://www.python.org">www.python.org</a> ansieht; besonders
+das <a href="http://www.python.org/doc/tut">Tutorial</a> (hier in <a
+href="http://starship.python.net/crew/gherman/publications/tut-de/tut-de-21.pdf">deutsch</a>).
+Wenn du fragst,
+warum dich das &uuml;berhaupt interessieren sollte, kannst du die <a
+ href="http://www.python.org/doc/Comparisons.html">Vergleichsseite</a> anschauen;
+da wird Python mit anderen Sprachen verglichen.</p>
+                                                                         
+                                                                         
+                                          
+            <p>Das <a
+ href="http://www.hetland.org/python/instant-python.php">Original</a> dieser
+Einf&uuml;hrung ist in verschiedene Sprachen &uuml;bersetzt worden, darunter <a
+ href="http://web.archive.org/web/20040406141258/http://bazar.conectiva.com.br/~cavassin/python/diferente.html">Portugiesisch</a>,
+            <a href="http://aleax.supereva.it/Python/ItaPythInst.htm">Italienisch</a>,
+            <a href="http://www.arrakis.es/%7Erapto/AprendaPython.html">Spanisch</a>,
+            <a
+ href="http://web.archive.org/web/20070805084432/http://skyscraper.fortunecity.com/motorola/668/rus/koi/python/belanov/instpy-r.html">Russisch</a>,
+            <a
+ href="http://www.idealx.org/fr/doc/python/instant_fr.html">Franz&ouml;sisch</a>,
+            <a href="http://neobug.voras.lt/docs/instant_python.html">Litauisch</a>,
+ <a href="http://www.python.jp/Zope/intro/instant_python_jp">Japanisch</a>, Deutsch und
+
+<a href="http://cs.uoi.gr/~csst0266/instant-python.html">Griechisch</a>,
+
+und wird gerade auch ins Norwegische, Polnische, and Koreanische &uuml;bersetzt.
+Weil dieses Dokument &ouml;fter aktualisiert wird, sind die &Uuml;bersetzungen evtl.
+nicht immer auf dem neuesten Stand. </p>
+                                                                         
+                                                                         
+                                          
+            <p><em class="greentext">Anmerkung</em>: Damit die Beispiele richtig
+funktionieren, m&uuml;ssen sie in eine Textdatei geschrieben und dann mit dem Interpreter
+abgearbeitet werden; versuche also <em>nicht</em>, sie direkt im interaktiven
+Interpreter auszuf&uuml;hren - da w&uuml;rden nicht alle funktionieren. (Fragt mich
+bitte <em>nicht</em> nach Einzelheiten dazu! Ich werde mit E-Mails dar&uuml;ber
+zugesch&uuml;ttet... Schaut dazu in die <a href="http://www.python.org/doc">Dokumentation</a>  oder
+fragt per E-Mail bei             <a href="mailto:help@python.org">help@python.org</a>).</p>
+                                                                         
+                                                                         
+                                          
+            <h2>Die Grundlagen</h2>
+                                                                         
+                                                                         
+                                          
+            <p>F&uuml;r den Anfang wollen wir so tun, als sei Python so etwas wie
+Pseudo-Code. Meist stimmt das sogar. Variablen haben keinen Typ, also braucht
+man sie auch nicht zu deklarieren. Sie existieren von dem Moment an, da ihnen
+etwas zugewiesen wird, und sie verschwinden wieder, wenn sie nicht mehr verwendet
+werden. Die Zuweisung geschieht mit dem Operator <code>=</code>. Gleichheit
+wird mit dem Operator <code>==</code> getestet. Man kann mit einer einzigen
+Anweisung unterschiedliche Zuweisungen an mehrere Variablen erledigen:  
+          </p>
+                                                                         
+                                                                         
+                                          
+            <pre>    x,y,z = 1,2,3<br><br>    erster, zweiter = zweiter, erster<br><br>    a = b = 123<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p>Bl&ouml;cke werden durch Einr&uuml;ckung angezeigt, und zwar <em>nur</em>
+durch Einr&uuml;ckung. (Es gibt also daf&uuml;r keinerlei <code>BEGIN</code>/<code>END</code>
+oder Klammern.) Einige &uuml;bliche Anweisungen zur Steuerung des Programmflusses
+sehen so aus:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    if x &lt; 5 or (x &gt; 10 and x &lt; 20):
+<br>        print "Der Wert ist OK."<br><br>    if x &lt; 5 or 10 &lt; x &lt; 20:
+<br>        print "Der Wert ist OK."<br><br>    for i in [1,2,3,4,5]:
+<br>        print "Dies ist die Iteration Nummer", i<br><br><br>    x = 10
+<br>    while x &gt;= 0:<br>        print "x ist noch nicht negativ."<br>        x = x-1<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p>Die ersten beiden Beispiele sind gleichwertig.</p>
+                                                                         
+                                                                         
+                                          
+            <p>Die Index-Variable in der <code>for</code>-Schleife l&auml;uft durch
+die Elemente einer <em>Liste</em> (und solche Listen werden mittels eckiger Klammern genau so notiert,
+wie oben im Beispiel gezeigt). F&uuml;r eine "gew&ouml;hnliche" <code>for</code>-Schleife
+(also eine Z&auml;hlschleife), benutzt man die eingebaute Funktion <code>range()</code>.
+            </p>
+                                                                         
+                                                                         
+                                          
+            <pre>    <span class="comment"># Drucke die Werte von 0 bis einschliesslich 99.</span>
+    for wert in range(100):
+        print wert
+            </pre>
+                                                                         
+                                                                         
+                                          
+            <p>(Die Zeile, die mit  "<code><span class="comment">#</span></code>"
+beginnt, ist ein Kommentar und wird vom Interpreter ignoriert.)</p>
+                                                                         
+                                                                         
+                                          
+            <p></p>
+                                                                         
+                                                                         
+                                          
+            <p>So, jetzt wissen wir genug, um (theoretisch) jeden beliebigen
+Algorithmus in Python zu implementieren. Wir wollen nun ein paar <em>elementare</em>
+Dinge f&uuml;r einen Dialog mit dem Benutzer hinzuf&uuml;gen. Um eine Eingabe vom Benutzer
+entgegenzunehmen (mit einer Eingabeaufforderung), benutzen wir die eingebaute
+Funktion <code>input</code>.</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    x = input("Bitte gib eine Zahl ein: ")<br>    print "Das Quadrat dieser Zahl ist", x*x<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p>Die Funktion <code>input</code> gibt die Eingabeaufforderung
+aus (die auch leer sein darf) und l&auml;sst den Benutzer einen g&uuml;ltigen Python-Wert
+eingeben. In diesem Fall haben wir eine Zahl erwartet &#8211; falls etwas anderes
+eingegeben wurde (z.B. so etwas wie eine Zeichenkette), w&uuml;rde das Programm
+abgebrochen. Um das zu vermeiden, brauchten wir irgend eine Art von Fehlertest.
+Ich werde das hier nicht vertiefen; man kann aber so viel sagen: Wenn man
+die Benutzereingabe <em>wortw&ouml;rtlich</em> als Zeichenkette abspeichern m&ouml;chte
+(so dass <em>jede</em> Eingabe zul&auml;ssig ist), dann benutzt man anstelle <code>input</code> die
+Funktion <code>raw_input</code>. Wenn man dann die eingegebene Zeichenkette
+in eine Ganzzahl umwandeln m&ouml;chte, k&ouml;nnte man<code> int(s)</code> verwenden.
+            </p>
+                                                                         
+                                                                         
+                                          
+            <p><em class="greentext">Anmerkung</em>: Wenn man mit
+            <code>input</code> eine Zeichenkette einlesen m&ouml;chte, dann muss
+der Benutzer die zur Zeichenkette geh&ouml;renden Anf&uuml;hrungszeichen ausdr&uuml;cklich
+selbst dazuschreiben. In Python k&ouml;nnen Zeichenketten nach Belieben entweder
+in einfache oder in doppelte Anf&uuml;hrungszeichen eingeschlossen sein.</p>
+                                                                         
+                                                                         
+                                          
+            <p>So, nachdem wir uns nun Steueranweisungen, Eingaben und Ausgaben
+angeschaut haben, brauchen wir noch ein paar schicke Datenstrukturen. Die
+wichtigsten sind <em>Listen</em> und <em>W&ouml;rterb&uuml;cher</em>. Listen werden
+in eckigen Klammern notiert und k&ouml;nnen (selbstverst&auml;ndlich) geschachtelt werden:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    name = ["Cleese", "John"]<br><br>    x = [[1,2,3],[y,z],[[[]]]]<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p>Eine sch&ouml;ne Eigenschaft von Listen ist, dass man auf ihre Elemente
+einzeln oder auch in Gruppen zugreifen kann; das funktioniert mittels   
+         <i>Indizierens</i> und <i>Ausschneidens</i> (englisch: <i>"slicing"</i>).
+Indizierung funktioniert (wie in vielen anderen Sprachen) so, dass in eckigen
+Klammern der Index an den Listennamen angeh&auml;ngt wird. (Das erste Listenelement
+hat den Index 0.)</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    print name[1], name[0] <span class="comment"># Druckt "John Cleese"</span>
+
+    name[0] = "Smith"
+            </pre>
+                                                                         
+                                                                         
+                                          
+            <p>Ausschneiden ist fast so wie indizieren, nur nennt man hier
+sowohl den Startindex als auch den Stoppindex f&uuml;r das Ergebnis des Zugriffs
+auf die Liste, wobei die beiden Indizes durch einen Doppelpunkt ("<code>:</code>")
+getrennt sind:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    x = ["spam","spam","spam","spam","spam","eier","und","spam"]<br><br>    print x[5:7] <span
+ class="comment"># Druckt die Liste ["eier","und"]</span>
+            </pre>
+                                                                         
+                                                                         
+                                          
+            <p>Wie wir sehen, ist das zum Endindex geh&ouml;rende Element in der
+Ergebnisliste nicht enthalten. Falls einer der Indizes weggelassen ist, wird
+angenommen, dass man in dieser Richtung auf den gesamten Rest der Liste zugreifen m&ouml;chte.
+Also bedeutet             <code>list[:3]</code>, dass man auf "jedes Element
+vom Anfang an bis ausschlie&szlig;lich Element 3" zugreifen will.  (Man k&ouml;nnte auch
+sagen, dass man eigentlich erst ab dem vierten Element nicht übernimmt, weil die Z&auml;hlung
+ja mit dem Index 0 beginnt ... ja, das ist so). <code>list[3:] </code> bedeutet
+dagegen, "jedes Element aus  <code>list</code>, angefangen mit (einschlie&szlig;lich)
+Element 3 bis einschlie&szlig;lich das letzte." F&uuml;r richtig interessante Ergebnisse
+kann man als Index auch negative Zahlen verwenden: <code>list[-3]</code> ist
+das dritte Element vom Ende der Liste...</p>
+                                                                         
+                                                                         
+                                          
+            <p>Da wir gerade beim Indizieren sind, ist es interessant zu
+wissen, dass es eine eingebaute Funktion <code>len</code> gibt, die die L&auml;nge
+einer Liste zur&uuml;ckgibt.</p>
+                                                                         
+                                                                         
+                                          
+            <p>Und nun &#8211; was gibt es &uuml;ber W&ouml;rterb&uuml;cher zu sagen? Um es einfach
+zu machen, sie sind so &auml;hnlich wie Listen, nur dass ihr Inhalt nicht der
+Reihe nach geordnet ist. Wie wird dann aber darauf zugegriffen? Nun, jedes
+Element hat einen <em>Schl&uuml;ssel</em>, oder einen "Namen", der benutzt wird,
+um auf dieses Element zuzugreifen, genau wie in einem richtigen W&ouml;rterbuch.
+Hier ein paar Beispiele f&uuml;r W&ouml;rterb&uuml;cher:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    { "Alice" : 23452532, "Boris" : 252336,
+<br>      "Clarice" : 2352525, "Doris" : 23624643}<br>
+<br>    person = { 'Vorname': "Robin", 'Nachname': "Hood",<br>               'Taetigkeit': "Halunke" }<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p>Um nun die T&auml;tigkeit der  <code>person</code> zu erhalten,
+verwenden wir den Ausdruck <code>person["Taetigkeit"]</code>. Falls wir ihren
+Nachnamen &auml;ndern wollen, k&ouml;nnen wir schreiben:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    person['Nachname'] = "of Locksley"<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p>Einfach, nicht wahr? So wie Listen k&ouml;nnen auch W&ouml;rterb&uuml;cher
+andere W&ouml;rterb&uuml;cher enthalten. Oder Listen, falls n&ouml;tig. Und nat&uuml;rlich k&ouml;nnen
+Listen auch W&ouml;rterb&uuml;cher enthalten. Auf die Weise kann man leicht ein paar
+ziemlich raffinierte Datenstrukturen erzeugen.</p>
+                                                                         
+                                                                         
+                                          
+            <h2>Funktionen</h2>
+                                                                         
+                                                                         
+                                          
+            <p>N&auml;chster Schritt: Abstraktion. Wir m&ouml;chten einem Codest&uuml;ck
+einen Namen geben und dann mit ein paar Parametern aufrufen. Mit anderen
+Worten &#8211; wir wollen eine Funktion (oder "Prozedur") definieren. Das ist einfach.
+Dazu benutzen wir das Schl&uuml;sselwort <code>def</code> so:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    def quadrat(x):<br>        return x*x<br><br>    print quadrat(2) <span
+ class="comment"># Druckt 4</span>
+            </pre>
+                                                                         
+                                                                         
+                                          
+            <p>F&uuml;r die, die es verstehen: Wenn man einen Parameter an eine
+Funktion &uuml;bergibt, dann &uuml;bergibt man in Wirklichkeit nur den mit dem Parameter
+verbundenen Wert und erzeugt so einen neuen Bezug auf diesen Wert &#8211; von innerhalb
+der Funktion. Wenn man den "Inhalt" dieses neuen Parameternamens &auml;ndert (d.h.
+neu bindet), dann hat das keine Auswirkung auf das Original. Das funktioniert
+z.B. in Java auch so. Wir wollen uns ein Beispiel ansehen:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    def aendere(eine_liste):<br>        eine_liste[1] = 4<br><br>    x = [1,2,3]<br>    aendere(x)<br>    print x <span
+ class="comment"># Druckt [1,4,3]</span>
+            </pre>
+                                                                         
+                                                                         
+                                          
+            <p>Wie man sieht, wird hier (als Wert, der zum Listennamen geh&ouml;rt)
+die Originaladresse der Liste &uuml;bergeben, und wenn die Funktion diese Adresse
+(unter dem lokalen Namen "eine_liste") benutzt und den Inhalt der zugeh&ouml;rigen
+Liste ver&auml;ndert, dann erscheint diese &Auml;nderung auch an der Stelle, von wo
+aus die Funktion aufgerufen wurde. Nun betrachten wir aber das Verhalten im
+folgenden Beispiel:             </p>
+                                                                         
+                                                                         
+                                          
+            <pre>    def nichtaendern(x):<br>        x = 0<br><br>    y = 1<br>    nichtaendern(y)<br>    print y <span
+ class="comment"># Druckt 1</span>
+            </pre>
+                                                                         
+                                                                         
+                                          
+            <p>Wieso ist jetzt nichts ge&auml;ndert? Weil wir <em>den urspr&uuml;nglichen
+Wert nicht &auml;ndern</em>! Der Wert, der hier &uuml;bergeben wurde, ist der Wert
+der Zahl 1 &#8212; es macht keinen Sinn, den Wert der Zahl 1 abzu&auml;ndern. Die Zahl
+1 ist (und soll auch immer sein) die Zahl 1. Was wir <em>getan haben</em>,
+ist, den Wert der lokalen Variablen (des Parameters) <code>x</code> zu &auml;ndern,
+und das wirkt <i>nicht</i> zur&uuml;ck auf die &auml;u&szlig;ere Umgebung der Funktion. (Wieso
+dann aber im obigen Fall des ge&auml;nderten Listenelements? Nochmal: Auch dort
+wurde <i>nicht</i> der <i>&uuml;bergebene Wert</i> &#8211; die Listenadresse selbst &#8211;
+ge&auml;ndert, sondern diese Listenadresse wurde unver&auml;ndert benutzt, um auf ein
+Element der Originalliste zuzugreifen und <em>das</em> zu &auml;ndern. Am einfachsten stellt
+man sich das so vor, dass die aufgerufene Funktion immer nur <i>Kopien</i>
+der &uuml;bergebenen Werte der Parameter &uuml;bernimmt, beim Verlassen der Funktion die
+Parameter der Aufrufliste aber niemals zur&uuml;ckkopiert werden.)</p>
+                                                                         
+                                                                         
+                                          
+            <p>F&uuml;r diejenigen, die das nicht verstanden haben: Keine Sorge
+&#8212; es ist gar nicht so schwer, wenn man nicht zu viel dar&uuml;ber nachzudenkt
+     <code>:)</code></p>
+                                                                         
+                                                                         
+                                          
+            <p>Python hat alle Arten von Rafinessen wie <em>benannte Argumente</em>
+und <em>Standardargumente</em> und kann auch mit einer variablen Anzahl von
+Argumenten f&uuml;r eine Funktion umgehen. Mehr Informationen dar&uuml;ber findet man
+im Python Tutorial <a
+ href="http://www.python.org/doc/current/tut/node6.html#SECTION006700000000000000000">Abschnitt
+4.7</a>.</p>
+                                                                         
+                                                                         
+                                          
+            <p>Wenn wir wissen, wie Funktionen &uuml;blicherweise benutzt werden,
+dann wissen wir das, was man in Python im Wesentlichen dar&uuml;ber wissen muss.
+(Ach ja... Das Schl&uuml;sselwort <code>return</code> beendet die Ausf&uuml;hrung der
+Funktion und gibt den ermittelten Wert zur&uuml;ck.)             </p>
+                                                                         
+                                                                         
+                                          
+            <p>Aber hier noch eine Sache, die n&uuml;tzlich sein kann: in Python
+sind Funktionen auch <i>Werte</i>. Wenn man also eine Funktion wie <code>quadrat</code>
+hat, dann kann man Sachen machen wie:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    blabla = quadrat<br>    print blabla(2) <span
+ class="comment"># Druckt 4</span>
+            </pre>
+                                                                         
+                                                                         
+                                          
+            <p>Um eine Funktion ohne Argumente aufzurufen, darf man nicht
+vergessen, das als <code>tuwas()</code> zu schreiben, und nicht als <code>tuwas</code>.
+Das letztere gibt, wie eben gezeigt, nur die Funktion selbst als Wert zur&uuml;ck.
+(Und das gilt so auch f&uuml;r Methoden in Objekten... siehe unten.)</p>
+                                                                         
+                                                                         
+                                          
+            <h2>Objekte und was dazu geh&ouml;rt...</h2>
+                                                                         
+                                                                         
+                                          
+            <p>Ich nehme an, dass du wei&szlig;t, wie objektorientierte Programmierung
+funktioniert. (Andernfalls w&uuml;rde dieser Abschnitt nicht viel Sinn machen.
+Kein Problem... Fang einfach ohne die Objekte an <code>:)</code>.) In Python
+definiert man Klassen mit dem Schl&uuml;sselwort (&Uuml;berraschung!)             
+     <code>class</code>, etwa so:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    class Korb:<br>
+<br>        <span class="comment"># Immer an das Argument *self* denken</span>
+<br>        def __init__(self,enthaelt=None):<br>            self.enthaelt = enthaelt or []
+<br><br>        def hinzufuegen(self,element):<br>            self.enthaelt.append(element)
+<br><br>        def druck_mich(self):<br>            ergebnis = ""
+<br>            for element in self.enthaelt:
+<br>                ergebnis = ergebnis + " " + `element`<br>            print "Enthaelt:"+ergebnis<br>            </pre>
+                                                                         
+                                                                         
+                                          
+            <p>Hier ist neu:</p>
+                                                                         
+                                                                         
+                                          
+            <ol>
+  <li>Alle Methoden (d.h. Funktionen innerhalb von Objekten) erhalten am
+Anfang der Parameterliste einen zus&auml;tzlichen Parameter, der das Objekt selbst
+enth&auml;lt. (In diesem Beispiel als                 <code>self</code> bezeichnet,
+was sich so eingeb&uuml;rgert hat.)   </li>
+              <li>Methoden werden so aufgerufen: 		<code>objekt.methode(arg1,arg2)</code>.
+  </li>
+              <li>Einige Methodennamen wie <code>__init__</code> sind vordefiniert
+und haben bestimmte Bedeutungen. <code>__init__</code> ist der Name des <em>Konstruktors</em>
+der Klasse, d.h. es ist eine Funktion, die aufgerufen wird, wenn man eine
+Instanz erzeugt.   </li>
+              <li>Einige Argumente k&ouml;nnen <i>wahlfrei</i> sein und haben
+daf&uuml;r einen Standardwert (wie weiter oben im Abschnitt &uuml;ber die Funktionen
+erw&auml;hnt). Das wird erreicht, indem man die Definition so schreibt:  		  
+                                                                        
+                                                                        
+                                                                        
+                                
+                <pre>        def spam(alter=32): ...<br>		</pre>
+		Hier kann <code>spam</code> mit einem oder mit null Argumenten aufgerufen
+werden. Wenn kein Argument benutzt wird, hat der Parameter 		<code>alter</code>
+den Wert 32.   </li>
+              <li>"Kurzschlusslogik." Das ist ziemlich pfiffig ... siehe
+unten.   </li>
+              <li>R&uuml;ckw&auml;rtsapostrophs wandeln ein Objekt in seine Zeichenkettendarstellung
+um. (Wenn also <code>element</code> den Wert 1 hat, dann ist 		<code>`element`</code>
+das gleiche wie <code>"1"</code> wohingegen 		<code>'element'</code> eine
+gew&ouml;hnliche Zeichenkette mit sechs Buchstaben ist.)   </li>
+              <li>Das Additionszeichen <code>+</code> wird auch zum Aneinanderketten
+von Listen benutzt, und Zeichenketten sind in Wirklichkeit einfach Listen
+von Zeichen (was bedeutet, dass man Indexierung und Ausschneiden und die
+Funktion 		<code>len</code> auf sie anwenden kann. Stark, oder?)</li>
+                                                                         
+                                                                         
+                                          
+            </ol>
+                                                                         
+                                                                         
+                                          
+            <p>In Python sind Methoden oder Attribute nicht zugriffsgesch&uuml;tzt
+(oder privat oder so &auml;hnlich). Verkapselung ist vielmehr eine Sache des Programmierstils.
+(Falls man es  <em>wirklich</em> braucht, gibt es Namenskonventionen, die
+eine gewisse Privatheit erlauben <code>:)</code>).</p>
+                                                                         
+                                                                         
+                                          
+            <p>Nun zur Kurzschlusslogik...</p>
+                                                                         
+                                                                         
+                                          
+            <p>Alle Werte in Python k&ouml;nnen als logische Werte verwendet werden.
+Solche, die sowieso schon "leer" aussehen wie <code>[]</code>, <code>0</code>,
+            <code>""</code> und             <code>None</code> bedeuten das
+logische "falsch", w&auml;hrend die meisten anderen Werte (wie <code>[0]</code>,
+            <code>1</code> oder <code>"Hallo Welt"</code>) logisch "wahr"
+bedeuten.</p>
+                                                                         
+                                                                         
+                                          
+            <p>Logische Ausdr&uuml;cke wie  <code>a and b</code> werden so ausgewertet:
+Zuerst wird getestet, ob <code>a</code> "wahr" ist. Falls es <i>nicht</i>
+wahr ist, dann wird es einfach gleich als Ergebnis zur&uuml;ckgegeben. <i>Wenn</i>
+es aber wahr ist, dann wird entsprechend einfach <code>b</code> zur&uuml;ckgegeben
+(das dann ja den Wahrheitswert des Ausdrucks repr&auml;sentiert). Die entsprechende
+Logik f&uuml;r <code>a or b</code> ist: Falls <code>a</code> wahr ist, dann gib
+es zur&uuml;ck. Falls nicht, dann gib <code>b</code> zur&uuml;ck.</p>
+                                                                         
+                                                                         
+                                          
+            <p>Durch diesen Mechanismus wird erreicht, dass sich die logischen
+Operatoren so verhalten, wie man es von ihnen erwartet, und au&szlig;erdem kann
+man kurze und nette kleine bedingte Ausdr&uuml;cke schreiben. Z.B. kann anstatt
+des Ausdrucks</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    if a:<br>        print a<br>    else:<br>        print b<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p>geschrieben werden:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    print a or b<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p>Das ist wirklich so etwas wie ein idiomatischer Ausdruck in
+Python, also kann man sich auch gleich daran gew&ouml;hnen. Wir verwenden das
+auch schon in der Methode <code>Korb.__init__</code>. Das Argument <code>enthaelt</code>
+bekommt als Standardwert <code>None </code>(was u.a. "falsch" bedeutet). Um
+zu testen, ob das Argument mit einem Wert belegt ist, k&ouml;nnte man schreiben:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    if enthaelt:<br>        self.enthaelt = enthaelt<br>    else:<br>        self.enthaelt = []<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p>Freilich wissen wir jetzt, dass es daf&uuml;r einen besseren Weg
+gibt. Und warum weisen wir nicht von Anfang an schon in der Parameterliste
+den Wert <code>[]</code> zu? Weil wegen der Funktionsweise von Python sich
+dadurch s&auml;mtliche K&ouml;rbe den Besitz einer und derselben leeren Liste teilen
+w&uuml;rden. Sobald einer dann seine Liste f&uuml;llt, w&uuml;rden auch alle anderen K&ouml;rbe
+diese Elemente enthalten, und ebenso w&auml;re dann auch der Standardwert nicht
+mehr leer. Um mehr dar&uuml;ber zu erfahren, kannst du die Dokumentation lesen
+und nach dem Unterschied zwischen <i>Identit&auml;t</i> und <i>Gleichheit</i> suchen.</p>
+                                                                         
+                                                                         
+                                          
+            <p>Eine weitere M&ouml;glichkeit, die obige Aufgabe zu erledigen,
+ist:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    def __init__(self, enthaelt=[]):<br>        self.enthaelt = enthaelt[:]<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p>Siehst du, wie das funktioniert? Anstatt dieselbe leere Liste
+&uuml;berall zu verwenden, benutzen wir den Ausdruck <code>contents[:]</code>zur
+Herstellung einer Kopie. (Wir schneiden einfach das Ding als ganzes aus, vom ersten bis zum letzten Index.)</p>
+                                                                         
+                                                                         
+                                          
+            <p>Um also nun wirklich einen <code>Korb</code> zu erzeugen und
+zu benutzen (d.h. einige seiner Methoden zu verwenden) k&ouml;nnten wir etwa folgendes
+tun:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    k = Korb(['apfel','orange'])<br>    k.hinzufuegen("zitrone")<br>    k.druck_mich()<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p>Es gibt au&szlig;er <code>__init__</code> noch andere spezielle Methoden.
+Eine solche Methode ist <code>__str__</code>, die definiert, wie das Objekt
+aussehen m&ouml;chte, wenn es als Zeichenkette behandelt wird. Wir k&ouml;nnten das
+in unserem Korb anstelle von <code>druck_mich</code> verwenden:         
+   </p>
+                                                                         
+                                                                         
+                                          
+            <pre>    def __str__(self):<br>        ergebnis = ""
+<br>        for element in self.enthaelt:<br>            ergebnis = ergebnis + " " + `element`
+<br>        return "Enthaelt:"+ergebnis<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p>Wenn wir jetzt den Korb <code>k</code> drucken wollen, k&ouml;nnen
+wir einfach schreiben:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    print k<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p>Stark, oder?</p>
+                                                                         
+                                                                         
+                                          
+            <p>Unterklassen bildet man so:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    class BrotKorb(Korb):<br>        <span
+ class="comment"># ... </span>
+            </pre>
+                                                                         
+                                                                         
+                                          
+            <p>Python erlaubt Mehrfachvererbung, man darf also mehrere Oberklassen
+in der Klammer angeben, die dann durch Kommata getrennt sind. Instanzen von
+Klassen erzeugt man so: <code>x = Korb()</code>. Konstruktoren werden wie
+gesagt durch die spezielle Methode <code>__init__</code> erm&ouml;glicht. Angenommen,
+            <code>BrotKorb</code> h&auml;tte einen Konstruktor <code>__init__(self,type)</code>.
+Dann k&ouml;nnte man einen Brotkorb so erzeugen: <code>y = BrotKorb("Semmeln")</code>.
+            </p>
+                                                                         
+                                                                         
+                                            
+            <p>Falls man im Konstruktor von <code>BrotKorb</code> den Konstruktor
+einer oder mehrerer Oberklassen aufrufen m&uuml;sste, k&ouml;nnte man das so machen:
+            <code>Korb.__init__(self)</code>. Hier muss man zus&auml;tzlich zu
+gew&ouml;hnlichen Parametern auch noch ausdr&uuml;cklich <code>self </code>&uuml;bergeben,
+weil das  <code>__init__</code> der Oberklasse nicht wissen kann, mit welcher
+Instanz es zu tun hat. </p>
+                                                                         
+                                                                         
+                                          
+            <p>Wer mehr &uuml;ber die Wunder der objektorientierten Programmierung
+in Python wissen m&ouml;chte, kann im Tutorial in <a
+ href="http://www.python.org/doc/tut/node11.html">Abschnitt 9</a> nachschauen.</p>
+                                                                         
+                                                                         
+                                          
+            <h2>Gehirnakrobatik nach Art der Jedi-Ritter</h2>
+                                                                         
+                                                                         
+                                          
+            <p><strong>Anmerkung: </strong>Dieser Abschnitt ist eigentlich etwas veraltet; er ist nur hier, weil ich ich die Sache gut
+finde. Man braucht ihn definitiv <em>nicht</em> zu lesen, wenn man anfangen
+will, Python zu lernen. Am Ende des Abschnittes steht noch etwas &uuml;ber &Auml;nderungen
+f&uuml;r Python 2.1.</p>
+                                                                         
+                                                                         
+                                          
+            <p>Magst du Gehirnakrobatik? Wenn
+du dich wirklich traust, k&ouml;nntest du dich an Guido van Rossums Aufsatz &uuml;ber
+            <a href="http://www.python.org/doc/essays/metaclasses/">Metaclassen</a>
+heranwagen. Wenn du dir das Gehirn aber erst mal lieber noch <i>nicht</i> verrenken 
+willst, bist du vielleicht schon mit diesem kleinen Trick zufrieden.</p>
+                                                                         
+                                                                         
+                                          
+            <p></p>
+                                                                         
+                                                                         
+                                          
+            <p>Python benutzt dynamische Namensr&auml;ume im Gegensatz zu lexikalischen
+Namensr&auml;umen. Das bedeutet, wenn wir eine Funktion wie diese haben:</p>
+                                                                         
+                                                                         
+                                          
+            <p></p>
+                                                                         
+                                                                         
+                                          
+            <pre>    def orangensaft():<br>        return x*2<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p>... wo eine Variable (in diesem Fall x) nicht an ein Argument
+gebunden ist und innerhalb der Funktion keinen Wert zugewiesen bekommt, dann
+wird Python den Wert verwenden, der an derjenigen Stelle vorhanden ist, wo die Funktion
+aufgerufen wird. in diesem Fall:             </p>
+                                                                         
+                                                                         
+                                          
+            <pre>    x = 3<br>    y = orangensaft()<br>    <span
+ class="comment"># y ist jetzt 6</span>
+    x = 1
+    y = orangensaft()
+    <span
+ class="comment"># y ist jetzt 2</span>
+            </pre>
+                                                                         
+                                                                         
+                                          
+            <p>Gew&ouml;hnlich ist das die Art Verhalten, die man so auch haben
+m&ouml;chte (obwohl das obige Beispiel etwas k&uuml;nstlich ist  &#8211; man wird auf Variablen
+nur selten auf diese Weise zugreifen.) Manchmal kann es dagegen aber angenehm
+sein, so etwas wie einen statischen Namensraum zu haben, d.h. einen Wert
+aus der Umgebung der Funktion zu speichern, wenn sie erzeugt wird. In Python
+kann man das machen, indem man ein Standardargument als Zwischenspeicher nimmt.</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    x = 4<br>    def apfelsaft(x=x):<br>        return x*2<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p>Hier erh&auml;lt das Argument <code>x</code> einen Standardwert,
+der der gleiche ist, wie der Wert der Variablen x in dem Moment, wo die Funktion
+definiert wird. So lange die Funktion ohne Argument aufgerufen wird, hat man
+dieses Verhalten:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    x = 3<br>    y = apfelsaft()<br>    <span
+ class="comment"># y ist jetzt 8</span>
+    x = 1
+    y = apfelsaft()
+    <span
+ class="comment"># y ist jetzt 8</span>
+            </pre>
+                                                                         
+                                                                         
+                                          
+            <p>Auf diese Weise wird der Wert von <code>x</code> also nicht
+ge&auml;ndert. Wenn wir nichts anderes wollten, h&auml;tten wir auch schreiben k&ouml;nnen</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    def tomatensaft():<br>        x = 4<br>        return x*2<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p>oder sogar</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    def moehrensaft():<br>        return 8<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p>Der <i>Knackpunkt</i> ist dabei, dass der Wert von <code>x</code>
+zu der Zeit aus der <i>Umgebung</i> der Funktion gewonnen wurde, als die
+Funktion definiert wurde. Was haben wir davon? Nehmen wir ein Beispiel &#8211; eine
+Funkton, die zwei andere Funktionen zusammenfasst.</p>
+                                                                         
+                                                                         
+                                          
+            <p>Wir m&ouml;chten eine Funktion, die so arbeitet:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    from math import sin, cos<br><br>    sincos = compose(sin,cos)<br><br>    x = sincos(3)<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p>Hier ist <code>compose</code> die Funkton, die wir ausf&uuml;hren
+wollen, und <code>x</code> hat den Wert <code>-0.836021861538</code>, was
+das gleiche ist wie <code>sin(cos(3))</code>. Also, wie machen wir das?</p>
+                                                                         
+                                                                         
+                                          
+            <p>(Beachte, dass wir hier Funktionen als Argumente benutzen...
+Das allein ist schon ein netter Trick.)</p>
+                                                                         
+                                                                         
+                                          
+            <p>Klar ist, dass <code>compose</code> zwei Funktionen als Parameter
+&uuml;bergeben bekommt und eine Funktion zur&uuml;ckgibt, die auch wieder einen Parameter
+erh&auml;lt. Ein erstes Ger&uuml;st f&uuml;r eine L&ouml;sung k&ouml;nnte also sein:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    def compose(fun1, fun2):<br>        def inner(x):<br>            pass <span
+ class="comment"># ...</span>
+        return inner
+            </pre>
+                                                                         
+                                                                         
+                                          
+            <p>Wir k&ouml;nnten versucht sein, <code>return fun1(fun2(x))</code>
+in die innere Funktion <code>inner</code> hineinzuschreiben und es dabei
+zu belassen. Nein, nein, nein. Das erg&auml;be ein sehr befremdliches Verhalten.
+Stellen wir uns den Schauplatz so vor:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    from math import sin, cos<br><br>    <span
+ class="comment"># Falsche Version</span>
+    def compose(fun1, fun2):
+        def inner(x):
+            return fun1(fun2(x))
+        return inner
+
+    def fun1(x):
+        return x + " world!"
+
+    def fun2(x):
+        return "Hello,"
+
+    sincos = compose(sin,cos)  <span
+ class="comment"># Die falsche Version benutzen</span>
+
+    x = sincos(3)
+            </pre>
+                                                                         
+                                                                         
+                                          
+            <p>Welchen Wert w&uuml;rde <code>x</code> jetzt haben? Richtig: <code>"Hello,
+world"</code>. Warum? Weil die Funktion beim Aufruf die Werte f&uuml;r <code>fun1</code>
+und <code>fun2</code> aus der augenblicklichen Umgebung nimmt, und nicht
+von da, wo die Funktion erzeugt wurde. Um eine funktionierende L&ouml;sung zu
+bekommen, brauchen wir nur das zu tun, was ich weiter oben schon beschrieben
+habe:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    def compose(fun1, fun2):<br>        def inner(x, fun1=fun1, fun2=fun2):
+<br>            return fun1(fun2(x))<br>        return inner<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p>Jetzt m&uuml;ssen wir nur noch hoffen, dass niemand die Funktion
+mit mehr als einem Argument aufruft, weil das nicht funktionieren w&uuml;rde <code>:)</code>.
+Und &uuml;brigens, weil wir den Namen <code>inner</code> eigentlich gar nicht
+brauchen und er auch nur einen Ausdruck enth&auml;lt, k&ouml;nnen wir genausogut eine
+            <i>anonyme</i> Funktion verwenden, indem wir das Schl&uuml;sselwort <code>lambda</code>
+benutzen:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    def compose(f1, f2):<br>        return lambda x, f1=f1, f2=f2: f1(f2(x))<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p>Knapp, aber klar. Du wirst es lieben <code>:)</code></p>
+                                                                         
+                                                                         
+                                          
+            <p>(Und falls du von all dem &uuml;berhaupt nichts verstanden hast,
+keine Sorge. Zumindest hoffe ich dich &uuml;berzeugt zu haben, dass Python mehr
+ist als "nur eine Skriptsprache"... <code>:)</code>)</p>
+                                                                         
+                                                                         
+                                          
+            <h3>Eine Bemerkung &uuml;ber Python 2.1 und geschachtelte G&uuml;ltigkeitsbereiche</h3>
+                                                                         
+                                                                         
+                                          
+            <p>Mit dem Erscheinen von Python 2.1 hat die Sprache jetzt (wahlfrei)
+statisch geschachtelte G&uuml;ltigkeitsbereiche oder Namensbereiche. Das hei&szlig;t,
+man kann all die in diesem Abschnitt beschriebenen Sachen ohne orgendwelche
+Tricksereien machen. Jetzt kann man einfach das folgende schreiben:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    <span class="comment"># In Python 2.2 wird das nicht mehr n&ouml;tig sein: </span>
+    from __future__ import nested_scopes
+
+    def compose(fun1, fun2):
+        def inner(x):
+            return fun1(fun2(x))
+        return inner
+            </pre>
+                                                                         
+                                                                         
+                                          
+            <p>... und es wird funktionieren wie es soll.</p>
+                                                                         
+                                                                         
+                                          
+            <h2>Und Jetzt...</h2>
+                                                                         
+                                                                         
+                                          
+            <p>Nur ein paar Sachen noch zum Schluss. Sehr n&uuml;tzliche Funktionen
+und Klassen befinden sich in <i>Modulen</i>, die in Wirklichkeit Textdateien
+mit Python-Code sind. Man kann die importieren und in den eigenen Programmen
+benutzen. Um z.B. die Methode <code>split</code> aus dem Modul <code>string</code>
+zu benutzen, kann man entweder so vorgehen:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    import string<br><br>    x = string.split(y)<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p>Oder so...</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    from string import split<br><br>    x = split(y)<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p>F&uuml;r mehr Information &uuml;ber die Module der Standardbibliothek
+kann man einen Blick auf <a href="http://www.python.org/doc/lib">www.python.org/doc/lib</a>
+werfen. Dort findet sich eine Menge n&uuml;tzlichen Materials.</p>
+                                                                         
+                                                                         
+                                          
+            <p></p>
+                                                                         
+                                                                         
+                                          
+            <p>Der gesamte Code im Modul/Skript wird abgearbeitet, wenn es
+importiert wird. Falls man m&ouml;chte, dass das eigene Programm sowohl ein importierbares
+Modul als auch ein lauff&auml;higes Programm ist, kann man etwa so etwas ans Ende
+schreiben:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    if __name__ == "__main__": go()<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p>Das ist eine spezielle M&ouml;glichkeit, zu sagen, dass, wenn dieses
+Modul als ausf&uuml;hrbares Skript abgearbeitet wird (also nicht in ein anderes
+Skript importiert wird), die Funktion <code>go</code> aufgerufen werden soll.
+Nat&uuml;rlich kann man nach dem Doppelpunkt auch irgendetwas anderes machen...
+            <code>:)</code></p>
+                                                                         
+                                                                         
+                                          
+            <p>Und diejenigen, die ein ausf&uuml;hrbares Skript unter UN*X machen
+m&ouml;chten, k&ouml;nnen das folgende als erste Zeile schreiben, damit das Skript
+direkt abgearbeitet wird:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    <span class="comment">#!/usr/bin/env python</span>
+            </pre>
+                                                                         
+                                                                         
+                                          
+            <p>Und am Schluss noch die kurze Erw&auml;hnung eines wichtigen Konzeptes:
+Ausnahmen. Einige Operationen (wie die Division durch null oder das Lesen
+von einer nicht existierenden Datei) f&uuml;hren zu Fehlerbedingungen oder <i>Ausnahmen</i>.
+Man kann sogar eigene Ausnahmen definieren und sie im entsprechenden Zeitpunkt
+aktivieren.</p>
+                                                                         
+                                                                         
+                                          
+            <p>Wenn auf eine Ausnahme nicht reagiert wird, endet das Programm
+und druckt eine Fehlermeldung aus. Vermeiden kann man das mit einer <code>try</code>/<code>except</code>-Anweisung.
+Z.B.:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    def sichere_division(a,b):<br>        try:<br>            return a/b
+<br>        except ZeroDivisionError:<br>            return None<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p><code>ZeroDivisionError</code> ist eine Standardausnahme.
+In diesem Fall h&auml;tte man zwar selbst vorher testen k&ouml;nnen, ob <code>b</code>
+Null ist, aber in vielen anderen F&auml;llen ist das nicht m&ouml;glich. Und au&szlig;erdem,
+falls wir keine <code>try</code>-Klausel in <code>safe_division</code> haben,
+die die riskante Funktion aufrufen kann, k&ouml;nnen wir immer noch so etwas machen:</p>
+                                                                         
+                                                                         
+                                          
+            <pre>    try:<br>        unsichere_division(a,b)<br>    except ZeroDivisionError:
+<br>        print "In unsichere_division wurde etwas durch null geteilt"<br></pre>
+                                                                         
+                                                                         
+                                          
+            <p>In F&auml;llen, wo man <i>normalerweise</i> kein bestimmtes Problem
+hat, aber eines auftauchen <i>k&ouml;nnte</i>, k&ouml;nnen mittels Ausnahmen teure Tests
+usw. vermieden werden.</p>
+                                                                         
+                                                                         
+                                          
+            <p>So, das ist es. Hoffentlich hast du einiges gelernt. Nun fang
+an und <a href="http://www.python.org">spiele</a> damit. Und denke an das
+Python-Motto zum Lernen: "Nutze die Quelle, Luke." (&Uuml;bersetzung: Lies allen
+Code, den du in die H&auml;nde bekommen kannst <code>:)</code>) Um dir beim Start
+zu helfen ist hier ein <a
+ href="http://hetland.org/coding/python/quicksort.py">Beispiel</a>. Es ist Hoares
+bekannter <em>QuickSort-</em>Algorithmus. Eine Version mit eingef&auml;rbter Syntax
+ist <a href="http://hetland.org/coding/python/quicksort.html">hier</a> zu finden.
+           </p>
+                                                                         
+                                                                         
+                                          
+            <p>Eine Sache in diesem Beispiel ist erw&auml;hnenswert. Die Variable
+            <code>done</code> steuert, ob <code>partition </code> komplett
+&uuml;ber alle Elemente erledigt wurde. Wenn also eine der zwei inneren Schleifen
+das gesamte Austauschverfahren beenden m&ouml;chte, setzt sie <code>done </code>auf
+            <code>1 </code>und beendet sich dann mittels <code>break</code>.
+Warum benutzen die inneren Schleifen <code>done</code>? Weil dann, wenn die
+erste innere Schleife mit einem  <code>break</code> endet, der Start einer
+n&auml;chsten Schleife davon abh&auml;ngt, ob die Hauptschleife beendet ist oder nicht,
+d.h. ob  <code>done</code> auf <code>1</code> gesetzt wurde, oder nicht:
+      </p>
+                                                                         
+                                                                         
+                                          
+            <pre>    while not done:<br>        while not done:<br>            <span
+ class="comment"># Iteriert bis zu einem break</span>
+
+        while not done:
+            <span
+ class="comment"># Wird nur ausgefuehrt, wenn die erste Schleife "done" nicht auf 1 gesetzt hat</span>
+            </pre>
+                                                                         
+                                                                         
+                                          
+            <p>Ein &Auml;quivalent, das vielleicht etwas klarer, nach meiner Meinung
+aber nicht so sch&ouml;n ist, kann so aussehen: </p>
+                                                                         
+                                                                         
+                                          
+            <pre>    while not done:<br>        while 1:<br>            <span
+ class="comment"># Iteriert bis zu einem break</span>
+
+        if not done:
+            while 1:
+                <span
+ class="comment"># Wird nur ausgefuehrt, wenn die erste Schleife "done" nicht auf 1 gesetzt hat</span>
+            </pre>
+                                                                         
+                                                                         
+                                          
+            <p>Der einzige Grund daf&uuml;r, dass ich die Variable <code>done</code>
+in der ersten Schleife benutzt habe, war, dass ich gern die Symmetrie zwischen
+den beiden Schleifen beibehalten wollte. Auf die Weise k&ouml;nnte man ihre Reihenfolge
+&auml;ndern, und der Algorithmus w&uuml;rde immer noch funktionieren.</p>
+                                                                         
+                                                                         
+                                          
+            <p>Einige weitere Beispiele finden sich auf Joe Strouts Seite
+            <a href="http://www.strout.net/python/tidbits.html">tidbit</a>.</p>
+                                                                         
+                                                                         
+                                          
+            <hr noshade="noshade"><font size="-1" color="#808080">Copyright
+© Magnus Lie Hetland</font><!-- hhmts start --><!--Last modified: Mon Jul 10 19:46:54 MET DST 2000-->
+
+<p>Deutsche Übersetzung: Hartmut Pfüller (letzte Änderung: 14. Oktober 2009)
+</p>
+<br><a href="ma/pfueller">Zur&uuml;ck
+zu Hartmut Pf&uuml;llers Heimseite</a>
+
+<!-- hhmts end --><!-- Notes:
+
+Add something about
+__repr__.
+
+map, reduce, filter...
+
+__call__
+
+-->
+      </td>
+<!--  <td><img src="/include/images/pixel.gif"
+      width=30 height=1></td>
+-->
+      </tr>
+                                                                         
+                                                                 
+        </tbody>                                                        
+                                            
+      </table>
+    </td>
+  </tr>
+                                            
+  </tbody>
+</table>
+<!--
+<br>
+<table cellpadding=0 cellspacing=0 border=0 width=800>
+<tr>
+<td bgcolor="#ff881f"><img src="/include/images/pixel.gif" height=2 width=1></td>
+</tr>
+<tr>
+<td bgcolor="#fff23f"><img src="/include/images/pixel.gif" height=20 width=1></td>
+</tr>
+</table>
+-->
+<br>
+
+<br>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-618497-14");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>
+
